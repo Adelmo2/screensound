@@ -9,8 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ScreensoundApplication implements CommandLineRunner {
-    //@Autowired
-    //private ArtistaRepository repositorio;
+
+    private final Principal principal;
+
+    public ScreensoundApplication(Principal principal) {
+        this.principal = principal;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(ScreensoundApplication.class, args);
@@ -18,7 +22,6 @@ public class ScreensoundApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //Principal principal = new Principal(repositorio);
-        //principal.exibeMenu();
+        principal.exibeMenu();
     }
 }
