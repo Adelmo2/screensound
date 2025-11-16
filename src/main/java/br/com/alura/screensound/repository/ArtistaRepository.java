@@ -1,12 +1,18 @@
 package br.com.alura.screensound.repository;
 
 import br.com.alura.screensound.model.Artista;
+import br.com.alura.screensound.model.Musica;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface ArtistaRepository  extends JpaRepository<Artista, Long> {
     Optional<Artista> findByNomeContainingIgnoreCase(String nomeArtista);
+
+    @Query("SELECT m FROM Artista a JOIN a.musicas m WHERE a.nome ILIKE %:nome%")
+    List<Musica> buscaMusicasPorArtista(String nome);
 }

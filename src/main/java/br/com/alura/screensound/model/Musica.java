@@ -17,6 +17,10 @@ public class Musica {
 
     public Musica(){};
 
+    public Musica(String titulo) {
+        this.titulo = titulo;
+    }
+
     public Long getId() {
         return id;
     }

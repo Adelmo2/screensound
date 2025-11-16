@@ -11,8 +11,8 @@ public class Artista {
 
     private String nome;
 
-    //@Enumerated(EnumType.STRING)
-    //private TipoArtista tipo;
+    @Enumerated(EnumType.STRING)
+    private TipoArtista tipo;
 
     @OneToMany(mappedBy = "artista", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Musica> musicas;
@@ -20,8 +20,9 @@ public class Artista {
 
     public Artista(){}
 
-    public Artista(String nome) {
+    public Artista(String nome, TipoArtista tipo) {
         this.nome = nome;
+        this.tipo = tipo;
     }
 
     public Long getId() {
@@ -40,12 +41,12 @@ public class Artista {
         this.nome = nome;
     }
 
-//    public TipoArtista getTipo() {
-//        return tipo;
-//    }
-//    public void setTipo(TipoArtista tipo) {
-//        this.tipo = tipo;
-//    }
+    public TipoArtista getTipo() {
+        return tipo;
+    }
+    public void setTipo(TipoArtista tipo) {
+        this.tipo = tipo;
+    }
 
     public List<Musica> getMusicas() {
         return musicas;
